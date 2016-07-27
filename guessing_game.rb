@@ -8,5 +8,41 @@
 # [ ] This game should be run from the command line by typing "ruby guessing_game.rb".
 
 number = rand(100)
+tries = 1
+# def higher
+#   puts "guess was too low, guess again"
+# end
+#
+# def lower
+#   puts "guess was too high, guess again"
+# end
+#
+# def correct
+#   puts "You got it!"
+# end
+#
+# def failed
+#   puts "The number was #{guess}, try again"
+# end
+#
+def turn
+  tries += 1
+end
 
-p number
+puts "Guess a number between 1 and 100."
+guess = 0
+while tries < 6 && guess != number
+  guess = gets.chomp.to_i
+  if guess > number
+    puts "too high"
+    tries += 1
+  elsif guess < number
+    puts "too low"
+    tries += 1
+  end
+  if tries == 6
+    puts "You lose!"
+  elsif guess == number
+    puts "You're correct!"
+  end
+end
